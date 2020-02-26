@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev:build-server": "webpack --mode=development --config webpack.server.js --watch",
+    "dev:build-client": "webpack --mode=development --config webpack.client.js --watch",
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev": "npm-run-all --parallel dev:* "
   },
