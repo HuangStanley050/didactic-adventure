@@ -1,5 +1,6 @@
 const rawData = require("./animeDataRaw.json");
 const fs = require("fs");
+const util = require("util");
 
 const data = JSON.parse(JSON.stringify(rawData));
 
@@ -13,4 +14,4 @@ animeList.forEach(anime => {
   finalData[temp[temp.length - 2]] = result;
 });
 
-fs.writeFileSync("animeData.json", JSON.stringify(finalData));
+//fs.writeFileSync("animeData.js", util.inspect(finalData), "utf-8");
