@@ -1,6 +1,6 @@
 const path = require("path");
-//const merge = require("webpack-merge");
-//const baseConfig = require("./webpack.base.js");
+const merge = require("webpack-merge");
+const baseConfig = require("./webpack.base.js");
 
 const clientConfig = {
   // Tell webpack the root file of our
@@ -14,5 +14,5 @@ const clientConfig = {
     path: path.resolve(__dirname, "public")
   }
 };
-module.exports = clientConfig;
-//module.exports = merge(baseConfig, clientConfig);
+//module.exports = clientConfig;
+module.exports = merge(baseConfig, clientConfig);

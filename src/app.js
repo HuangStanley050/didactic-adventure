@@ -1,6 +1,6 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import renderer from "./helpers/renderer";
+import renderer from "./server/renderer";
 import express from "express";
 
 const app = express();
