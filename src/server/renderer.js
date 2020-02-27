@@ -4,7 +4,7 @@ import { StaticRouter } from "react-router-dom";
 //import { Provider } from "react-redux";
 import { renderRoutes } from "react-router-config";
 import serialize from "serialize-javascript";
-import App from "../client/App";
+
 //import { Helmet } from "react-helmet";
 import Routes from "../shared/Routes";
 
