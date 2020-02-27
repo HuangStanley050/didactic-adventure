@@ -1,13 +1,17 @@
 import React from "react";
 import { Button } from "reactstrap";
+import { renderRoutes } from "react-router-config";
 
-const App = () => {
+const App = ({ route }) => {
   return (
     <div>
-      <h1>Hello world</h1>
-      <Button>Hello</Button>
+      <h1>Nav placement</h1>
+
+      {renderRoutes(route.routes)}
     </div>
   );
 };
 
-export default App;
+export default {
+  component: App
+};

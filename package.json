@@ -6,7 +6,7 @@
   "scripts": {
     "dev:build-server": "webpack --mode=development --config webpack.server.js --watch",
     "dev:build-client": "webpack --mode=development --config webpack.client.js --watch",
-    "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
+    "dev:server": "nodemon --watch build --watch public --exec \"node build/bundle.js\"",
     "dev": "npm-run-all --parallel dev:* "
   },
   "keywords": [],
@@ -19,6 +19,8 @@
     "core-js": "^3.6.4",
     "express": "^4.17.1",
     "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-twitter": "^1.0.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.2.0",
