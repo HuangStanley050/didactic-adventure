@@ -5,9 +5,10 @@ import renderer from "./server/renderer";
 import cookieSession from "cookie-session";
 import passport from "passport";
 import express from "express";
-
+import "./server/config/googleStrategy";
 const app = express();
 app.use(express.static("public"));
+app.use(express.json());
 app.use(
   cookieSession({
     name: "animeSSR",
