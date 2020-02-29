@@ -13,6 +13,7 @@ const Auth = () => {
       <h2 className="text-primary" style={{ textAlign: "center" }}>
         Login Method
       </h2>
+
       <Container
         style={{
           display: "flex",

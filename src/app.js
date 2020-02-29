@@ -21,9 +21,9 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(authRouter);
 
-app.use("*", async (req, res) => {
+app.use(authRouter);
+app.get("*", async (req, res) => {
   // const store = {};
   // const promises = matchRoutes(Routes, req.path).map(({ route }) => {
   //   console.log(route);
@@ -31,14 +31,15 @@ app.use("*", async (req, res) => {
   //   //return route.loadData ? route.loadData(store) : null;
   // });
   // await Promise.all(promises);
-  const context = {};
+
+  const context = { test: "hello" };
   const content = renderer(req, context);
   if (context.notFound) {
     console.log("not found");
     res.status(404);
   }
   // console.log("before sending response the context: ");
-  //console.log(content);
+  //console.log(context);
   return res.send(content);
 });
 
