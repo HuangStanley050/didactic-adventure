@@ -1,9 +1,14 @@
 import express from "express";
 import passport from "passport";
+import requireAuth from "../middleware/requireAuth";
 const router = express.Router();
 
 router
-  .get("/api/protected", (req, res) => {
+  .get("/api/current_user", (req, res) => {
+    console.log(req.user);
+    return res.send(req.user);
+  })
+  .get("/api/protected", requireAuth, (req, res) => {
     console.log("in protected route");
     console.log(req.user);
     return res.send("secret route");
