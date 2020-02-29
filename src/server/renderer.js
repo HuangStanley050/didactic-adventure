@@ -8,10 +8,10 @@ import serialize from "serialize-javascript";
 //import { Helmet } from "react-helmet";
 import Routes from "../shared/Routes";
 
-export default (req, store, context) => {
+export default (req, context) => {
   const app = (
     //<Provider store={store}>
-    <StaticRouter location={req.path} context={{}}>
+    <StaticRouter location={req.path} context={context}>
       <div>{renderRoutes(Routes)}</div>
     </StaticRouter>
     //</Provider>
@@ -19,10 +19,12 @@ export default (req, store, context) => {
 
   const content = renderToString(app);
   //const helmet = Helmet.renderStatic();
-
+  console.log(req.path);
+  console.log(context);
   return `
   <html>
     <head>
+      <link rel="stylesheet" type="text/css" href="main.css">
     </head>
     <body>
       <div id="root">

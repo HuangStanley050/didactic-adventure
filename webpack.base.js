@@ -1,4 +1,6 @@
+//const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
+  //plugins: [new MiniCssExtractPlugin()],
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
@@ -10,7 +12,15 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: [
+          "isomorphic-style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1
+            }
+          }
+        ]
       },
       {
         test: /\.(js|jsx)$/,
