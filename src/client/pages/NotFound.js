@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NotFound.css";
 
-const NotFoundPage = ({ staticContext = {} }) => {
+const NotFound = ({ staticContext = {} }) => {
   staticContext.notFound = true;
+
   return (
     <div id="notfound">
       <div className="notfound">
@@ -22,5 +23,5 @@ const NotFoundPage = ({ staticContext = {} }) => {
 };
 
 export default {
-  component: NotFoundPage
+  component: NotFound
 };

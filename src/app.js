@@ -26,15 +26,19 @@ app.use(authRouter);
 app.use("*", async (req, res) => {
   // const store = {};
   // const promises = matchRoutes(Routes, req.path).map(({ route }) => {
-  //   return route.loadData ? route.loadData(store) : null;
+  //   console.log(route);
+  //   return null;
+  //   //return route.loadData ? route.loadData(store) : null;
   // });
+  // await Promise.all(promises);
   const context = {};
   const content = renderer(req, context);
   if (context.notFound) {
     console.log("not found");
     res.status(404);
   }
-  //console.log(context);
+  // console.log("before sending response the context: ");
+  //console.log(content);
   return res.send(content);
 });
 
