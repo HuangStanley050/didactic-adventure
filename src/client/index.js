@@ -6,14 +6,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import { BrowserRouter } from "react-router-dom";
-//import { Provider } from "react-redux";
+import { Provider } from "react-redux";
 import { renderRoutes } from "react-router-config";
 import Routes from "../shared/Routes";
-//import store from "./setupStore";
+import store from "./setupStore";
 const app = (
-  <BrowserRouter>
-    <div>{renderRoutes(Routes)}</div>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <div>{renderRoutes(Routes)}</div>
+    </BrowserRouter>
+  </Provider>
 );
 
 ReactDOM.hydrate(app, document.getElementById("root"));
