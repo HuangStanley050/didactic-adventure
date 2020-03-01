@@ -26,12 +26,10 @@ app.use(passport.session());
 app.use(authRouter);
 app.get("*", async (req, res) => {
   const store = createStore(req);
-  // const promises = matchRoutes(Routes, req.path).map(({ route }) => {
-  //   console.log(route);
-  //   return null;
-  //   //return route.loadData ? route.loadData(store) : null;
-  // });
-  // await Promise.all(promises);
+  const promises = matchRoutes(Routes, req.path).map(({ route }) => {
+    return route.loadData ? route.loadData(store) : null;
+  });
+  await Promise.all(promises);
 
   const context = {};
   const content = renderer(req, store, context);
