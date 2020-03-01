@@ -32,7 +32,7 @@ app.get("*", async (req, res) => {
   // });
   // await Promise.all(promises);
 
-  const context = { test: "hello" };
+  const context = {};
   const content = renderer(req, context);
   if (context.notFound) {
     console.log("not found");
