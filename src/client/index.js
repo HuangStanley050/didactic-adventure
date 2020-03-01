@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import { renderRoutes } from "react-router-config";
 import Routes from "../shared/Routes";
 import store from "./setupStore";
+
 const app = (
   <Provider store={store}>
     <BrowserRouter>

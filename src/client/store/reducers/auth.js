@@ -1,15 +1,16 @@
 import ActionType from "../actions";
 const initialState = {
-  isAuth: false
+  isAuth: null
 };
 
 const reducer = (state = initialState, action) => {
-  switch (action) {
+  switch (action.type) {
     case ActionType.CHECK_AUTH:
       // console.log("inside reducer");
       // console.log(action.payload);
       return {
-        ...state
+        ...state,
+        isAuth: action.payload ? true : false
       };
     default:
       return state;
