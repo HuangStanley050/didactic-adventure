@@ -4,6 +4,10 @@ import requireAuth from "../middleware/requireAuth";
 const router = express.Router();
 
 router
+  .get("/api/logout", (req, res) => {
+    req.logout();
+    res.send("you have logged out");
+  })
   .get("/api/current_user", (req, res) => {
     console.log(req.user);
     return res.send(req.user);

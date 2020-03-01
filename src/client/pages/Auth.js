@@ -23,12 +23,20 @@ const Auth = () => {
       >
         <Row style={{ width: "80%" }}>
           <Col style={colStyle} xs="12">
-            <Button style={{ display: "block", width: "60%" }} color="primary">
+            <Button
+              href="/api/auth/google"
+              style={{ display: "block", width: "60%" }}
+              color="primary"
+            >
               Google
             </Button>
           </Col>
           <Col style={colStyle} xs="12">
-            <Button style={{ display: "block", width: "60%" }} color="info">
+            <Button
+              href="/api/auth/twitter"
+              style={{ display: "block", width: "60%" }}
+              color="info"
+            >
               Twitter
             </Button>
           </Col>

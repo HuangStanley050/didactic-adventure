@@ -9,9 +9,9 @@ import serialize from "serialize-javascript";
 import Routes from "../shared/Routes";
 
 export default (req, context) => {
-  console.log("before renderString");
-  console.log(context);
-  console.log(req.url);
+  // console.log("before renderString");
+  // console.log(context);
+  // console.log(req.url);
   const app = (
     //<Provider store={store}>
     <StaticRouter location={req.url} context={context}>
@@ -23,8 +23,8 @@ export default (req, context) => {
   const content = renderToString(app);
   //const helmet = Helmet.renderStatic();
   //context.notFound = true;
-  console.log("after renderString");
-  console.log(context);
+  // console.log("after renderString");
+  // console.log(context);
   return `
   <html>
     <head>
