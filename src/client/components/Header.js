@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import {
   Collapse,
   Navbar,
@@ -14,7 +15,25 @@ const Header = props => {
   const [collapsed, setCollapsed] = useState(true);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
-
+  const loginLink = (
+    <>
+      <NavItem>
+        <NavLink tag={Link} style={{ color: "white" }} to="/anime">
+          Anime
+        </NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink>Logout</NavLink>
+      </NavItem>
+    </>
+  );
+  const logoutLink = (
+    <NavItem>
+      <NavLink tag={Link} style={{ color: "white" }} to="/auth">
+        Login
+      </NavLink>
+    </NavItem>
+  );
   return (
     <div>
       <Navbar style={{ backgroundColor: "dodgerBlue" }} light>
@@ -28,22 +47,13 @@ const Header = props => {
         </NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
-          <Nav navbar>
-            <NavItem>
-              <NavLink tag={Link} style={{ color: "white" }} to="/anime">
-                Anime
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} style={{ color: "white" }} to="/auth">
-                Login
-              </NavLink>
-            </NavItem>
-          </Nav>
+          <Nav navbar>{props.isAuth ? loginLink : logoutLink}</Nav>
         </Collapse>
       </Navbar>
     </div>
   );
 };
-
-export default Header;
+const mapState = state => ({
+  isAuth: state.auth.isAuth
+});
+export default connect(mapState)(Header);

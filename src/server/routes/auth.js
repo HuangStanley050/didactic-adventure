@@ -9,9 +9,9 @@ router
     res.send("you have logged out");
   })
   .get("/api/current_user", (req, res) => {
-    console.log("cookie is: ", req.get("cookie"));
-    console.log("in api current user route");
-    console.log("req user is: ", req.user);
+    // console.log("cookie is: ", req.get("cookie"));
+    // console.log("in api current user route");
+    // console.log("req user is: ", req.user);
     return res.send(req.user);
   })
   .get("/api/protected", requireAuth, (req, res) => {
