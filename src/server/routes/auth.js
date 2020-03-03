@@ -6,7 +6,7 @@ const router = express.Router();
 router
   .get("/api/logout", (req, res) => {
     req.logout();
-    res.send("you have logged out");
+    res.redirect("/");
   })
   .get("/api/current_user", (req, res) => {
     // console.log("cookie is: ", req.get("cookie"));

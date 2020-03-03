@@ -15,6 +15,7 @@ const Header = props => {
   const [collapsed, setCollapsed] = useState(true);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
+  const handleLogout = () => window.confirm("are you logging out?");
   const loginLink = (
     <>
       <NavItem>
@@ -23,7 +24,13 @@ const Header = props => {
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink>Logout</NavLink>
+        <NavLink
+          onClick={handleLogout}
+          href="/api/logout"
+          style={{ color: "white" }}
+        >
+          Logout
+        </NavLink>
       </NavItem>
     </>
   );
