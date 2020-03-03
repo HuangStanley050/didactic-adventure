@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "reactstrap";
+import requireAuth from "../components/HOC/requireAuth";
 
 const Anime = () => {
   return (
@@ -12,5 +13,5 @@ const Anime = () => {
 };
 
 export default {
-  component: Anime
+  component: requireAuth(Anime)
 };

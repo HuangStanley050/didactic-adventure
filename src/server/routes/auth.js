@@ -28,7 +28,7 @@ router
     // console.log(req.user);
     //res.send("google auth okay");
     console.log("google auth okay");
-    res.redirect("/");
+    res.redirect("/anime");
   })
   .get("/api/auth/twitter", passport.authenticate("twitter"))
   .get(
@@ -36,7 +36,7 @@ router
     passport.authenticate("twitter"),
     (req, res) => {
       console.log("twitter auth okay");
-      res.redirect("/");
+      res.redirect("/anime");
     }
   );
 
