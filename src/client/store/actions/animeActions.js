@@ -12,6 +12,6 @@ export const fetchDefaultAnimes = () => {
       animePromise2,
       animePrimise3
     ]);
-    console.log(reuslt);
+    console.log(result);
   };
 };
