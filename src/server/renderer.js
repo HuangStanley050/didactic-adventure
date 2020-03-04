@@ -19,7 +19,7 @@ export default (req, store, context) => {
       </StaticRouter>
     </Provider>
   );
-
+  //console.log(store.getState());
   const content = renderToString(app);
   //const helmet = Helmet.renderStatic();
   //context.notFound = true;
