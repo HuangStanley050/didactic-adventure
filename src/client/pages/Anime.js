@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "reactstrap";
 import requireAuth from "../components/HOC/requireAuth";
+import { fetchDefaultAnimes } from "../store/actions/animeActions";
 
 const Anime = () => {
   return (
@@ -11,7 +12,10 @@ const Anime = () => {
     </div>
   );
 };
-
+const loadData = store => {
+  store.dispatch(fetchDefaultAnimes());
+};
 export default {
-  component: requireAuth(Anime)
+  component: requireAuth(Anime),
+  loadData
 };
