@@ -32,7 +32,7 @@ const Header = props => {
         <NavLink
           onClick={handleLogout}
           //href="/api/logout"
-          style={{ color: "white" }}
+          style={{ color: "white", cursor: "pointer" }}
         >
           Logout
         </NavLink>

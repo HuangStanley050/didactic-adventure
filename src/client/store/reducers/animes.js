@@ -7,6 +7,8 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.FETCH_DEFAULT_ANIMES:
+      // console.log("action inside anime reducer");
+      // console.log(action.payload);
       return {
         ...state,
         defaultAnimes: [...action.payload]

@@ -19,6 +19,7 @@ export default (req, store, context) => {
       </StaticRouter>
     </Provider>
   );
+  //console.log("before render string");
   //console.log(store.getState());
   const content = renderToString(app);
   //const helmet = Helmet.renderStatic();

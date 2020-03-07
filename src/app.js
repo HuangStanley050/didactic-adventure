@@ -1,6 +1,7 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import authRouter from "./server/routes/auth";
+import dataRouter from "./server/routes/data";
 import renderer from "./server/renderer";
 import cookieSession from "cookie-session";
 import { matchRoutes } from "react-router-config";
@@ -24,6 +25,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(authRouter);
+app.use(dataRouter);
 app.get("*", async (req, res) => {
   const store = createStore(req);
   const promises = matchRoutes(Routes, req.path)
@@ -42,8 +44,8 @@ app.get("*", async (req, res) => {
   const context = {};
   const content = renderer(req, store, context);
   if (context.notFound) {
-    console.log("404");
-    console.log("not found");
+    // console.log("404");
+    // console.log("not found");
     res.status(404);
   }
   // console.log("before sending response the context: ");
