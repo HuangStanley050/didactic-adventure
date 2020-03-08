@@ -29,9 +29,24 @@ router.get("/api/anime", requireAuth, async (req, res) => {
     animeResult3
   ]);
   const finalData = [
-    finalResult[0].data,
-    finalResult[1].data,
-    finalResult[2].data
+    {
+      title: finalResult[0].data.title,
+      type: finalResult[0].data.type,
+      summary: finalResult[0].data.synopsis,
+      imageURL: finalResult[0].data.image_url
+    },
+    {
+      title: finalResult[1].data.title,
+      type: finalResult[1].data.type,
+      summary: finalResult[1].data.synopsis,
+      imageURL: finalResult[0].data.image_url
+    },
+    {
+      title: finalResult[2].data.title,
+      type: finalResult[2].data.type,
+      summary: finalResult[2].data.synopsis,
+      imageURL: finalResult[0].data.image_url
+    }
   ];
   //console.log(finalResult[0].data);
   res.send({ msg: "anime route", data: finalData });
