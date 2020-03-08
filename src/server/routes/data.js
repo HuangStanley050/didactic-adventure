@@ -3,8 +3,9 @@ import randomId from "../util/randomId";
 import animeData from "../../animeData";
 import axios from "axios";
 const router = express.Router();
+let apiURL = `https://api.jikan.moe/v3/anime/`;
 
-router.get("/api/anime", (req, res) => {
+router.get("/api/anime", async (req, res) => {
   let animeId1;
   let animeId2;
   let animeId3;
@@ -18,6 +19,15 @@ router.get("/api/anime", (req, res) => {
   // console.log("random anime id: ", animeId1);
   // console.log("randomly selected anime is: ", animeData[animeId1.toString()]);
   // console.log("id is: ", animeId1);
+  const animeResult1 = axios.get(apiURL + `${animeId1}`);
+  const animeResult2 = axios.get(apiURL + `${animeId2}`);
+  const animeResult3 = axios.get(apiURL + `${animeId3}`);
+  const finalResult = await Promise.all([
+    animeResult1,
+    animeResult2,
+    animeResult3
+  ]);
+  console.log(finalResult[0].data);
   res.send("anime route");
 });
 
