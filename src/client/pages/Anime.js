@@ -13,7 +13,7 @@ const Anime = props => {
     <div>
       <Container>
         <h1>Anime page</h1>
-        <Loader />
+        {props.isLoading ? <Loader /> : null}
       </Container>
     </div>
   );
@@ -24,9 +24,13 @@ const loadData = store => {
 const mapDispatch = dispatch => ({
   loadInitialData: () => dispatch(fetchDefaultAnimes())
 });
+const mapState = state => ({
+  isLoading: state.anime.loading,
+  animes: state.anime.defaultAnimes
+});
 export default {
   component: connect(
-    null,
+    mapState,
     mapDispatch
   )(requireAuth(Anime)),
   loadData
