@@ -1,18 +1,18 @@
 import animeData from "../../animeData";
 
-const randomId = () => {
+const randomId = defaultId => {
   const animes = Object.keys(animeData).length;
   const selection = Math.floor(Math.random() * animes) + 1;
   const animeArray = Object.entries(animeData);
-  let randomAnimeId = 1;
+  //let randomAnimeId = 1;
   for (const [id, title] of animeArray) {
     if (id === selection.toString()) {
-      randomAnimeId = id;
+      defaultId = id;
       break;
     }
   }
 
-  return randomAnimeId;
+  return defaultId;
 };
 
 export default randomId;
