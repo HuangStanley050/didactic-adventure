@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Container } from "reactstrap";
 import requireAuth from "../components/HOC/requireAuth";
+import Loader from "../components/Loader";
 import { connect } from "react-redux";
 import { fetchDefaultAnimes } from "../store/actions/animeActions";
 
@@ -12,6 +13,7 @@ const Anime = props => {
     <div>
       <Container>
         <h1>Anime page</h1>
+        <Loader />
       </Container>
     </div>
   );

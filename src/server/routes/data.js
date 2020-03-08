@@ -1,11 +1,12 @@
 import express from "express";
 import randomId from "../util/randomId";
 import animeData from "../../animeData";
+import requireAuth from "../middleware/requireAuth";
 import axios from "axios";
 const router = express.Router();
 let apiURL = `https://api.jikan.moe/v3/anime/`;
 
-router.get("/api/anime", async (req, res) => {
+router.get("/api/anime", requireAuth, async (req, res) => {
   let animeId1;
   let animeId2;
   let animeId3;
@@ -27,8 +28,13 @@ router.get("/api/anime", async (req, res) => {
     animeResult2,
     animeResult3
   ]);
-  console.log(finalResult[0].data);
-  res.send("anime route");
+  const finalData = [
+    finalResult[0].data,
+    finalResult[1].data,
+    finalResult[2].data
+  ];
+  //console.log(finalResult[0].data);
+  res.send({ msg: "anime route", data: finalData });
 });
 
 export default router;
