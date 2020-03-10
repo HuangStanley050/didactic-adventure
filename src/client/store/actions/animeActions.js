@@ -7,11 +7,11 @@ export const fetchDefaultAnimes = () => {
     dispatch({ type: ActionType.FETCH_DEFAULT_ANIMES_START });
     const animePromise1 = api.get(dataApi + animeId[0]);
     const animePromise2 = api.get(dataApi + animeId[1]);
-    const animePrimise3 = api.get(dataApi + animeId[2]);
+    //const animePrimise3 = api.get(dataApi + animeId[2]);
     let result = await Promise.all([
       animePromise1,
-      animePromise2,
-      animePrimise3
+      animePromise2
+      //animePrimise3
     ]);
     let animeData = result.map(anime => {
       // console.log(anime.data.title);
