@@ -30,6 +30,7 @@ export default (req, store, context) => {
   <html>
     <head>
       <link rel="stylesheet" type="text/css" href="main.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
       <div id="root">

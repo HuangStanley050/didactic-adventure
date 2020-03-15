@@ -13,15 +13,17 @@ router.get("/api/anime", requireAuth, async (req, res) => {
   animeId1 = parseInt(randomId(1)); //default value if can't find the random id *cowboy bebop
   animeId2 = parseInt(randomId(123)); //fushigi yugi
   animeId3 = parseInt(randomId(30)); //evanglion
-
+  let finalResult;
   const animeResult1 = axios.get(apiURL + `${animeId1}`);
   const animeResult2 = axios.get(apiURL + `${animeId2}`);
   const animeResult3 = axios.get(apiURL + `${animeId3}`);
-  const finalResult = await Promise.all([
-    animeResult1,
-    animeResult2,
-    animeResult3
-  ]);
+  try {
+    finalResult = await Promise.all([animeResult1, animeResult2, animeResult3]);
+  } catch (err) {
+    console.log("anime server side");
+    console.log(err.response);
+  }
+
   const finalData = [
     {
       title: finalResult[0].data.title,
@@ -33,13 +35,13 @@ router.get("/api/anime", requireAuth, async (req, res) => {
       title: finalResult[1].data.title,
       type: finalResult[1].data.type,
       summary: finalResult[1].data.synopsis,
-      imageURL: finalResult[0].data.image_url
+      imageURL: finalResult[1].data.image_url
     },
     {
       title: finalResult[2].data.title,
       type: finalResult[2].data.type,
       summary: finalResult[2].data.synopsis,
-      imageURL: finalResult[0].data.image_url
+      imageURL: finalResult[2].data.image_url
     }
   ];
   //console.log(finalResult[0].data);
