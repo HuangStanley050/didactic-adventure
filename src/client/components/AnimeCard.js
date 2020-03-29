@@ -11,7 +11,6 @@ import {
 } from "reactstrap";
 
 const AnimeCard = props => {
-  console.log(props);
   return (
     <Col xs="12" md="4">
       <Card>
